@@ -1,108 +1,139 @@
 # YouTube Titles & Descriptions — Learn With AI
 
-Code used in videos: https://github.com/Vekri/Postgre
+Code: https://github.com/Vekri/Postgre
 
 ---
 
-## SHORT VIDEO (~1 minute)
+# VIDEO 1 — Objects (Database → Trigger)
+
+## SHORT
+**Title:** `PostgreSQL in 60 Seconds | Database → Schema → Table → Index → Trigger`
+
+**Description:**
+```
+PostgreSQL in 60 seconds — Database, Schema, Table, Index, Trigger, View, Function.
+
+📦 Free SQL: https://github.com/Vekri/Postgre
+Subscribe to Learn With AI 🔔
+
+#PostgreSQL #SQL #YouTubeShorts #LearnWithAI
+```
+
+## LONG
+**Title:** `PostgreSQL Full Tutorial | sales Table with Sample Data (Database to Triggers)`
+
+**Description:**
+```
+Full-screen PostgreSQL masterclass with sales.orders sample data.
+
+📦 SQL: https://github.com/Vekri/Postgre
+File: sql/sales_analytics_demo.sql
+
+#PostgreSQL #SQLTutorial #pgAdmin #LearnWithAI
+```
+
+---
+
+# VIDEO 2 — EXPLAIN / EXPLAIN ANALYZE (NEXT)
+
+## What this video explains (for you / viewers)
+
+PostgreSQL does not guess randomly how to run SQL. It builds a **query plan**.
+
+| Command | Meaning |
+|---------|---------|
+| `EXPLAIN` | Show the plan only (cheap, no full execution focus) |
+| `EXPLAIN ANALYZE` | **Run** the query and show **actual** time + rows |
+| `Seq Scan` | Read the whole `sales.orders` table |
+| `Index Scan` | Use `idx_orders_city` for `WHERE city = 'Bangalore'` |
+
+**YouTube demo story:**  
+1. `EXPLAIN ANALYZE` with index dropped → **Seq Scan**  
+2. Recreate index → **Index Scan**  
+3. Say: “Same SQL, different plan — this is how pros tune queries.”
+
+## SHORT (~1 min)
 
 ### Title
 ```
-PostgreSQL in 60 Seconds | Database → Schema → Table → Index → Trigger
-```
-
-### Alternate titles
-```
-What is PostgreSQL? Full Object Map in 1 Minute
-PostgreSQL Short: sales Table + Index + Trigger Explained Fast
+PostgreSQL EXPLAIN in 60 Seconds | Seq Scan vs Index Scan
 ```
 
 ### Description
 ```
-PostgreSQL in 60 seconds — the complete object map for beginners and interview prep.
+Why is my SQL slow? PostgreSQL EXPLAIN shows the plan.
 
-✅ Database
-✅ Schema
-✅ Table (sales.orders)
-✅ Columns & Constraints
-✅ Index
-✅ Trigger
-✅ View & Function
+✅ EXPLAIN vs EXPLAIN ANALYZE
+✅ Seq Scan (full table read)
+✅ Index Scan (fast city filter on sales.orders)
+✅ Before/after CREATE INDEX
+
+📦 Free SQL:
+https://github.com/Vekri/Postgre
+File: sql/02_explain_analyze_demo.sql
+
+Prerequisite: run Video 1 script first (sales sample data).
+
+Subscribe to Learn With AI 🔔
+
+#PostgreSQL #EXPLAIN #SQLPerformance #YouTubeShorts #LearnWithAI
+```
+
+## LONG (~8–10 min)
+
+### Title
+```
+PostgreSQL EXPLAIN ANALYZE Tutorial | Make sales Queries Faster with Indexes
+```
+
+### Description
+```
+Learn PostgreSQL EXPLAIN and EXPLAIN ANALYZE with a real sales.orders table.
+
+In this tutorial you will:
+• Read a query plan bottom → top
+• Understand Seq Scan vs Index Scan
+• Use EXPLAIN ANALYZE on WHERE city = 'Bangalore'
+• Drop and recreate idx_orders_city to prove the difference live
+• Explain GROUP BY and window function plans
+• Know when an index helps — and when it does not on tiny tables
 
 📦 Free SQL (copy & run in pgAdmin):
 https://github.com/Vekri/Postgre
 
-Watch the FULL 8-minute masterclass on the channel for sample data, RLS, ENUM types, and advanced analytics.
-
-Subscribe to Learn With AI 🔔
-
-#PostgreSQL #SQL #YouTubeShorts #pgAdmin #LearnSQL #DataEngineering #LearnWithAI
-```
-
----
-
-## LONG VIDEO (~8 minutes, fullscreen)
-
-### Title
-```
-PostgreSQL Full Tutorial | sales Table with Sample Data (Database to Triggers)
-```
-
-### Alternate titles
-```
-PostgreSQL Masterclass: Create Database, Schema, sales.orders, Index, Trigger, View
-Learn PostgreSQL with Real sales Data | pgAdmin 4 Full Screen Tutorial
-```
-
-### Description
-```
-Learn PostgreSQL the professional way — full screen, real sales sample data, and advanced explanations of every major object in pgAdmin.
-
-In this tutorial we build:
-• Database: sales_analytics
-• Schema: sales
-• Table: sales.orders (IDENTITY, NUMERIC, CHECK, TIMESTAMPTZ)
-• 6 sample rows (Ravi, Priya, Arun, Sneha, Kiran, Meena)
-• Index for city filters
-• Trigger + trigger function
-• High-value orders VIEW
-• total_paid_revenue() FUNCTION (= 36700)
-
-You will understand:
-ACID & MVCC basics, why NUMERIC for money, constraints vs app validation, B-tree index trade-offs, RLS idea for multi-tenant apps, ENUM domain modeling, views as analytics contracts, GROUP BY vs window RANK.
-
-⏱️ Chapters
-00:00 What is PostgreSQL?
-00:40 Create database
-01:20 Create schema sales
-02:00 Create sales.orders table
-02:50 Insert sample data + SELECT
-03:40 Columns & constraints
-04:20 Indexes on city
-05:00 RLS / security idea
-05:40 Triggers & trigger functions
-06:20 Types, views, functions
-07:10 Advanced queries on sample sales
-07:40 Blueprint + practice
-
-📦 All necessary SQL (ready to run):
-https://github.com/Vekri/Postgre
-
-File: sql/sales_analytics_demo.sql
+Files:
+1) sql/sales_analytics_demo.sql   ← create sample data first
+2) sql/02_explain_analyze_demo.sql ← EXPLAIN lessons
 
 How to run:
-1. Open pgAdmin 4 Query Tool on postgres
-2. Run CREATE DATABASE sales_analytics
-3. Open Query Tool on sales_analytics
-4. Run the rest of the script step by step
+1. Open Query Tool on sales_analytics
+2. Run EXPLAIN, then EXPLAIN ANALYZE
+3. DROP INDEX → see Seq Scan
+4. CREATE INDEX → see Index Scan
+5. Compare Planning Time and Execution Time on screen
 
-🔔 Subscribe to Learn With AI for PostgreSQL, Python, and Data Engineering.
+Next on Learn With AI: JOINs on sales data / Window Functions deep dive / Python + PostgreSQL.
 
-#PostgreSQL #SQLTutorial #pgAdmin #SQLForBeginners #DataAnalyst #DataEngineering #LearnWithAI #SQLInterview
+🔔 Subscribe to Learn With AI
+
+#PostgreSQL #EXPLAINANALYZE #SQLOptimization #pgAdmin #DataEngineering #SQLInterview #LearnWithAI
 ```
 
 ### Pinned comment
 ```
-Run the free SQL here 👉 https://github.com/Vekri/Postgre
-Which topic should we do next: JOINs, Window Functions, or Python + PostgreSQL?
+SQL for this video 👉 https://github.com/Vekri/Postgre/blob/main/sql/02_explain_analyze_demo.sql
+Did your plan show Seq Scan or Index Scan? Comment below!
+```
+
+### On-camera voice cues (Long)
+```
+0:00  What is a query plan?
+0:40  EXPLAIN on sales.orders
+1:30  EXPLAIN ANALYZE — actual time
+2:30  Bangalore filter — 2 rows (Ravi, Sneha)
+3:20  DROP INDEX → Seq Scan demo
+4:30  CREATE INDEX → Index Scan demo
+5:30  GROUP BY paid revenue plan
+6:30  Window RANK plan
+7:30  Rules of thumb + subscribe
 ```

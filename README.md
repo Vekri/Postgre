@@ -1,34 +1,38 @@
 # PostgreSQL Tutorial Scripts — Learn With AI
 
-Minimal SQL you can run in **pgAdmin 4 Query Tool** (or `psql`) while watching the Learn With AI videos.
+Minimal SQL for **pgAdmin 4 Query Tool** (or `psql`) while watching Learn With AI videos.
 
 **Repo:** https://github.com/Vekri/Postgre
 
-## Quick start (pgAdmin 4)
+## Video order
 
-1. Open **pgAdmin 4** → connect to your PostgreSQL server.
-2. Open **Query Tool** on the default `postgres` database.
-3. Run **Step 1 only** from `sql/sales_analytics_demo.sql` (`CREATE DATABASE`).
-4. Refresh **Databases** → right-click `sales_analytics` → **Query Tool**.
-5. Run the remaining steps in order (schema → table → sample data → index → trigger → view → function).
+| # | Topic | SQL file |
+|---|--------|----------|
+| 1 | Database → Schema → Table → Index → Trigger | `sql/sales_analytics_demo.sql` |
+| 2 | **EXPLAIN / EXPLAIN ANALYZE** (next) | `sql/02_explain_analyze_demo.sql` |
 
-## Files
+## Quick start
 
-| File | Use |
-|------|-----|
-| `sql/sales_analytics_demo.sql` | **Necessary code only** — one clean script for the full video |
-| `YOUTUBE.md` | Short + Long video titles and descriptions (copy-paste ready) |
+### Video 1 — build sales demo
+1. Query Tool on `postgres` → run `CREATE DATABASE` from `sales_analytics_demo.sql`
+2. Open Query Tool on `sales_analytics` → run the rest
 
-## What the demo builds
+### Video 2 — EXPLAIN (requires Video 1 data)
+1. Connect to `sales_analytics`
+2. Run `sql/02_explain_analyze_demo.sql` step by step
+3. On screen, compare **Seq Scan** (no index) vs **Index Scan** (with index)
+
+## What EXPLAIN teaches
 
 ```text
-Database: sales_analytics
-  Schema: sales
-    Table: orders (+ 6 sample rows)
-    Index, Trigger, View, Function
+EXPLAIN              → planned steps only
+EXPLAIN ANALYZE      → plan + real runtime
+Seq Scan             → read whole table
+Index Scan           → use index (e.g. city = Bangalore)
+Planning/Execution   → time metrics for YouTube demos
 ```
 
-## Sample data preview
+## Sample data (sales.orders)
 
 | order_id | customer_name | amount | city | status |
 |---------:|---------------|-------:|------|--------|
@@ -41,4 +45,4 @@ Database: sales_analytics
 
 ## Channel
 
-Subscribe to **Learn With AI** for PostgreSQL, Python, and data engineering tutorials.
+**Learn With AI** — PostgreSQL, Python, data engineering.
